@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anay Rennie — Mathematical Modelling</title>
+<meta name="description" content="Mathematical modelling research and problem-solving service by Anay Rennie. IIT (ISM) Dhanbad. Submit your modelling problem.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#131A26;
+  --paper:#FBFAF7;
+  --grid:#E8E6DE;
+  --blue:#1D4ED8;
+  --deep:#12306B;
+  --amber:#B4530A;
+  --grey:#5B6472;
+  --line:#D9D6CC;
+  --card:#FFFFFF;
+  --night:#0B1026;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size:28px 28px;
+  line-height:1.6;
+}
+.serif{font-family:'STIX Two Text',serif}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(251,250,247,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+  padding:0 24px;
+}
+.nav-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  height:60px;
+}
+.nav-name{font-family:'STIX Two Text',serif;font-weight:700;font-size:1.05rem;text-decoration:none;color:var(--ink)}
+.nav-name em{color:var(--blue)}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--grey);font-size:.85rem;font-weight:500;transition:color .15s}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--blue)}
+.nav-links a.cta{color:#fff;background:var(--blue);padding:7px 16px;border-radius:4px}
+.nav-links a.cta:hover{background:var(--deep)}
+
+/* ── HERO ── */
+.hero{
+  max-width:1100px;margin:0 auto;padding:72px 24px 56px;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;
+}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;
+  color:var(--amber);text-transform:uppercase;margin-bottom:14px;
+}
+h1{
+  font-family:'STIX Two Text',serif;font-weight:700;
+  font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.12;margin-bottom:18px;
+}
+h1 .var{font-style:italic;color:var(--blue)}
+.hero p.lede{font-size:1.02rem;color:var(--grey);max-width:46ch;margin-bottom:26px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:.9rem;padding:12px 22px;border-radius:5px;transition:all .15s}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 4px 14px rgba(29,78,216,.3)}
+.btn-primary:hover{background:var(--deep);transform:translateY(-2px);box-shadow:0 8px 22px rgba(29,78,216,.35)}
+.btn-ghost{border:1.5px solid var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.hero-plot svg{width:100%;height:auto;display:block;filter:drop-shadow(0 12px 24px rgba(19,26,38,.12))}
+.plot-caption{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--grey);margin-top:10px;text-align:center}
+
+/* ── SECTIONS ── */
+section{max-width:1100px;margin:0 auto;padding:64px 24px}
+.sec-head{margin-bottom:40px}
+.sec-head h2{font-family:'STIX Two Text',serif;font-weight:700;font-size:1.7rem;margin-bottom:8px}
+.sec-head p{color:var(--grey);max-width:60ch}
+.rule{height:1px;background:var(--line);max-width:1100px;margin:0 auto}
+
+/* ── 3D RESEARCH CARDS ── */
+.cards{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  gap:28px;perspective:1400px;
+}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  overflow:hidden;position:relative;
+  box-shadow:0 2px 6px rgba(19,26,38,.06), 0 14px 34px rgba(19,26,38,.09);
+  transform-style:preserve-3d;
+  transition:transform .35s cubic-bezier(.2,.8,.3,1), box-shadow .35s;
+}
+.card:hover{
+  transform:rotateX(4deg) rotateY(-4deg) translateY(-8px) scale(1.015);
+  box-shadow:0 6px 14px rgba(19,26,38,.08), 0 30px 60px rgba(19,26,38,.18);
+}
+.card-art{
+  height:170px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-art svg{width:100%;height:100%;display:block}
+.card-body{padding:22px 22px 24px}
+.card .tag{
+  font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--amber);
+}
+.card h3{font-family:'STIX Two Text',serif;font-size:1.1rem;font-weight:600;margin:8px 0 8px;line-height:1.3}
+.card p{font-size:.85rem;color:var(--grey)}
+.card .venue{
+  display:inline-block;margin-top:14px;
+  font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--deep);
+  background:#EEF3FE;padding:4px 10px;border-radius:20px;
+}
+.card .venue.pub{background:#E9F9EF;color:#0B6E3F}
+
+/* floating animation on art elements */
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes floatSlow{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes orbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes twinkle{0%,100%{opacity:.9}50%{opacity:.25}}
+.fl{animation:float 5s ease-in-out infinite}
+.fls{animation:floatSlow 7s ease-in-out infinite}
+.tw{animation:twinkle 3.4s ease-in-out infinite}
+.tw2{animation:twinkle 4.6s ease-in-out infinite .8s}
+
+/* ── SERVICE ── */
+.service-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.steps{list-style:none;counter-reset:step}
+.steps li{counter-increment:step;position:relative;padding:0 0 26px 54px}
+.steps li::before{
+  content:counter(step);position:absolute;left:0;top:0;
+  width:36px;height:36px;border-radius:50%;
+  background:var(--paper);border:1.5px solid var(--blue);color:var(--blue);
+  font-family:'JetBrains Mono',monospace;font-weight:500;font-size:.9rem;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 3px 8px rgba(29,78,216,.15);
+}
+.steps li:not(:last-child)::after{
+  content:'';position:absolute;left:18px;top:40px;bottom:6px;width:1px;background:var(--line);
+}
+.steps h3{font-family:'STIX Two Text',serif;font-size:1.05rem;font-weight:600;margin-bottom:4px}
+.steps p{font-size:.87rem;color:var(--grey)}
+.price-card{
+  background:#fff;border:1px solid(var(--line));border-radius:14px;padding:28px;
+  box-shadow:0 2px 6px rgba(19,26,38,.06), 0 18px 40px rgba(19,26,38,.1);
+}
+.price-card h3{font-family:'STIX Two Text',serif;font-size:1.15rem;margin-bottom:16px}
+.price-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px dashed var(--line)}
+.price-row:last-of-type{border-bottom:none}
+.price-row .kind{font-size:.88rem}
+.price-row .kind small{display:block;color:var(--grey);font-size:.75rem}
+.price-row .amt{font-family:'JetBrains Mono',monospace;font-weight:500;color:var(--deep);white-space:nowrap}
+.price-note{font-size:.76rem;color:var(--grey);margin-top:14px;font-style:italic}
+
+/* ── FORM ── */
+.form-wrap{
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:34px;max-width:660px;margin:0 auto;
+  box-shadow:0 2px 6px rgba(19,26,38,.06), 0 18px 40px rgba(19,26,38,.1);
+}
+.form-row{margin-bottom:18px}
+label{display:block;font-size:.82rem;font-weight:600;margin-bottom:6px}
+input,textarea,select{
+  width:100%;padding:11px 13px;font-family:'Inter',sans-serif;font-size:.9rem;
+  border:1px solid var(--line);border-radius:5px;background:var(--paper);color:var(--ink);
+}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
+textarea{min-height:130px;resize:vertical}
+.form-hint{font-size:.74rem;color:var(--grey);margin-top:5px}
+.pay-box{margin-top:24px;padding:18px;border:1.5px dashed var(--amber);border-radius:8px;background:#FFF9F2}
+.pay-box h4{font-family:'STIX Two Text',serif;font-size:.98rem;margin-bottom:8px}
+.pay-box p{font-size:.83rem;color:var(--grey)}
+.pay-box .upi{
+  font-family:'JetBrains Mono',monospace;font-size:.88rem;color:var(--deep);
+  background:#fff;padding:8px 12px;border-radius:4px;display:inline-block;margin-top:8px;border:1px solid var(--line);
+}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.cred{border-left:2px solid var(--blue);padding-left:16px;margin-bottom:18px}
+.cred h4{font-size:.92rem;font-weight:600}
+.cred p{font-size:.82rem;color:var(--grey)}
+
+footer{border-top:1px solid var(--line);margin-top:40px;padding:34px 24px;text-align:center}
+footer p{font-size:.8rem;color:var(--grey)}
+footer .eq{font-family:'STIX Two Text',serif;font-style:italic;font-size:1rem;color:var(--ink);margin-bottom:8px}
+footer a{color:var(--blue);text-decoration:none}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;padding-top:48px}
+  .service-grid,.about-grid{grid-template-columns:1fr}
+  .nav-links{gap:16px}
+  .nav-links li:nth-child(2){display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .fl,.fls,.tw,.tw2{animation:none}
+  .card:hover{transform:none}
+  .btn-primary:hover{transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="#top">Anay <em>Rennie</em></a>
+    <ul class="nav-links">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a class="cta" href="#submit">Submit a Problem</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<header class="hero" id="top">
+  <div>
+    <div class="eyebrow">Mathematical Modelling · Research &amp; Practice</div>
+    <h1>Real problems,<br>modelled <span class="var">properly</span>.</h1>
+    <p class="lede">
+      I'm Anay Rennie — IIT (ISM) Dhanbad, seven years building quantitative risk
+      models for Tier-1 US and Japanese banks. I take messy real-world questions and
+      turn them into mathematics that answers them. Read my work below — or bring me yours.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#submit">Submit a problem</a>
+      <a class="btn btn-ghost" href="#research">See the research</a>
+    </div>
+  </div>
+
+  <div class="hero-plot" aria-hidden="true">
+    <svg viewBox="0 0 400 300" role="img" aria-label="Logistic growth curve plotted on axes">
+      <line x1="40" y1="260" x2="380" y2="260" stroke="#131A26" stroke-width="1.5"/>
+      <line x1="40" y1="260" x2="40" y2="20" stroke="#131A26" stroke-width="1.5"/>
+      <g stroke="#B9B5A9" stroke-width="1">
+        <line x1="125" y1="257" x2="125" y2="263"/><line x1="210" y1="257" x2="210" y2="263"/>
+        <line x1="295" y1="257" x2="295" y2="263"/>
+        <line x1="37" y1="200" x2="43" y2="200"/><line x1="37" y1="140" x2="43" y2="140"/>
+        <line x1="37" y1="80" x2="43" y2="80"/>
+      </g>
+      <g fill="#B4530A">
+        <circle cx="70" cy="243" r="3"/><circle cx="100" cy="236" r="3"/>
+        <circle cx="130" cy="222" r="3"/><circle cx="160" cy="196" r="3"/>
+        <circle cx="190" cy="158" r="3"/><circle cx="220" cy="118" r="3"/>
+        <circle cx="250" cy="88" r="3"/><circle cx="280" cy="68" r="3"/>
+        <circle cx="310" cy="57" r="3"/><circle cx="340" cy="51" r="3"/>
+      </g>
+      <path d="M 55 250 C 140 245, 160 230, 200 150 C 235 85, 270 55, 370 47"
+            fill="none" stroke="#1D4ED8" stroke-width="2.5"/>
+      <text x="205" y="40" font-family="STIX Two Text, serif" font-style="italic"
+            font-size="15" fill="#131A26">P(t) = K / (1 + Ae<tspan baseline-shift="super" font-size="10">−rt</tspan>)</text>
+      <text x="370" y="278" font-family="STIX Two Text, serif" font-style="italic" font-size="13" fill="#5B6472">t</text>
+      <text x="24" y="30" font-family="STIX Two Text, serif" font-style="italic" font-size="13" fill="#5B6472">P</text>
+    </svg>
+    <div class="plot-caption">fig 1. — observations, and the model that explains them</div>
+  </div>
+</header>
+
+<div class="rule"></div>
+
+<!-- ══ RESEARCH — 3D ILLUSTRATED CARDS ══ -->
+<section id="research">
+  <div class="sec-head">
+    <h2>Selected Research &amp; Models</h2>
+    <p>Problem → method → result. Each entry is a real model built for a real question.
+       Full papers available on request.</p>
+  </div>
+
+  <div class="cards">
+
+    <!-- SUPERINTELLIGENCE — planets + spaceship -->
+    <article class="card">
+      <div class="card-art">
+        <svg viewBox="0 0 340 170" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <radialGradient id="space" cx="50%" cy="40%" r="80%">
+              <stop offset="0%" stop-color="#1B2A5E"/>
+              <stop offset="100%" stop-color="#0B1026"/>
+            </radialGradient>
+            <radialGradient id="planet1" cx="35%" cy="35%" r="75%">
+              <stop offset="0%" stop-color="#7FB3FF"/>
+              <stop offset="60%" stop-color="#2B5CC7"/>
+              <stop offset="100%" stop-color="#132B66"/>
+            </radialGradient>
+            <radialGradient id="planet2" cx="35%" cy="30%" r="80%">
+              <stop offset="0%" stop-color="#FFD9A8"/>
+              <stop offset="70%" stop-color="#C77E2B"/>
+              <stop offset="100%" stop-color="#6E3E0D"/>
+            </radialGradient>
+          </defs>
+          <rect width="340" height="170" fill="url(#space)"/>
+          <!-- stars -->
+          <g fill="#DCE6FF">
+            <circle class="tw" cx="30" cy="24" r="1.4"/><circle class="tw2" cx="72" cy="58" r="1"/>
+            <circle class="tw" cx="120" cy="18" r="1.2"/><circle class="tw2" cx="205" cy="30" r="1.4"/>
+            <circle class="tw" cx="300" cy="20" r="1.1"/><circle class="tw2" cx="320" cy="70" r="1.3"/>
+            <circle class="tw" cx="255" cy="120" r="1"/><circle class="tw2" cx="45" cy="130" r="1.2"/>
+            <circle class="tw" cx="160" cy="140" r="1"/>
+          </g>
+          <!-- big planet with ring -->
+          <g class="fls">
+            <circle cx="250" cy="95" r="38" fill="url(#planet2)"/>
+            <ellipse cx="250" cy="95" rx="58" ry="13" fill="none" stroke="#E8C48A" stroke-width="3" opacity=".85"
+                     transform="rotate(-16 250 95)"/>
+            <ellipse cx="250" cy="95" rx="58" ry="13" fill="none" stroke="#9A6A25" stroke-width="1" opacity=".6"
+                     transform="rotate(-16 250 95)"/>
+          </g>
+          <!-- small blue planet -->
+          <circle class="fl" cx="70" cy="80" r="20" fill="url(#planet1)"/>
+          <!-- spaceship -->
+          <g class="fl" style="animation-delay:.8s">
+            <g transform="translate(140,52) rotate(18)">
+              <!-- body -->
+              <ellipse cx="0" cy="0" rx="26" ry="9" fill="#E8ECF5"/>
+              <ellipse cx="0" cy="-4" rx="12" ry="7" fill="#9FC0FF"/>
+              <ellipse cx="0" cy="-4" rx="12" ry="7" fill="none" stroke="#5B84D6" stroke-width="1"/>
+              <ellipse cx="0" cy="0" rx="26" ry="9" fill="none" stroke="#8A93A8" stroke-width="1"/>
+              <!-- lights -->
+              <circle cx="-14" cy="3" r="1.7" fill="#1D4ED8"/>
+              <circle cx="0" cy="4.5" r="1.7" fill="#B4530A"/>
+              <circle cx="14" cy="3" r="1.7" fill="#1D4ED8"/>
+              <!-- exhaust -->
+              <path d="M -30 2 L -42 6 L -30 6 Z" fill="#7FB3FF" opacity=".8"/>
+            </g>
+          </g>
+          <!-- orbit path hint -->
+          <ellipse cx="170" cy="90" rx="150" ry="60" fill="none" stroke="#3D4E8C" stroke-width=".8"
+                   stroke-dasharray="3 6" opacity=".5"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <span class="tag">Consciousness &amp; AI</span>
+        <h3>Superintelligence, Cosmos and the Infinite Mind</h3>
+        <p>An inquiry into the relationship between artificial superintelligence, cosmology,
+           and the nature of mind — where mathematical structure meets consciousness.</p>
+        <span class="venue">Working paper · In development</span>
+      </div>
+    </article>
+
+    <!-- SATELLITE / ISRO -->
+    <article class="card">
+      <div class="card-art">
+        <svg viewBox="0 0 340 170" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <radialGradient id="space2" cx="50%" cy="30%" r="90%">
+              <stop offset="0%" stop-color="#14224A"/>
+              <stop offset="100%" stop-color="#0B1026"/>
+            </radialGradient>
+            <radialGradient id="earth" cx="40%" cy="30%" r="80%">
+              <stop offset="0%" stop-color="#6FD3FF"/>
+              <stop offset="55%" stop-color="#1D71C7"/>
+              <stop offset="100%" stop-color="#0A2E66"/>
+            </radialGradient>
+          </defs>
+          <rect width="340" height="170" fill="url(#space2)"/>
+          <g fill="#DCE6FF">
+            <circle class="tw" cx="50" cy="30" r="1.3"/><circle class="tw2" cx="140" cy="20" r="1"/>
+            <circle class="tw" cx="230" cy="35" r="1.2"/><circle class="tw2" cx="300" cy="25" r="1.4"/>
+            <circle class="tw" cx="310" cy="90" r="1"/>
+          </g>
+          <!-- earth arc -->
+          <circle cx="170" cy="300" r="185" fill="url(#earth)"/>
+          <path d="M 30 158 Q 90 130 170 138 Q 260 146 315 128" fill="none" stroke="#8FE0FF" stroke-width="1.4" opacity=".5"/>
+          <!-- satellite -->
+          <g class="fl">
+            <g transform="translate(170,66) rotate(-12)">
+              <!-- solar panels -->
+              <g fill="#1D4ED8" stroke="#0E2C7A" stroke-width="1">
+                <rect x="-58" y="-8" width="34" height="18" rx="1.5"/>
+                <rect x="24" y="-8" width="34" height="18" rx="1.5"/>
+              </g>
+              <g stroke="#7FB3FF" stroke-width=".8" opacity=".8">
+                <line x1="-47" y1="-8" x2="-47" y2="10"/><line x1="-36" y1="-8" x2="-36" y2="10"/>
+                <line x1="35" y1="-8" x2="35" y2="10"/><line x1="46" y1="-8" x2="46" y2="10"/>
+              </g>
+              <!-- body -->
+              <rect x="-20" y="-13" width="40" height="27" rx="3" fill="#E8ECF5" stroke="#8A93A8"/>
+              <rect x="-13" y="-7" width="26" height="15" rx="2" fill="#C7D2E8"/>
+              <!-- dish -->
+              <ellipse cx="0" cy="-19" rx="9" ry="4.5" fill="#FFF4E0" stroke="#B4530A"/>
+              <line x1="0" y1="-19" x2="0" y2="-13" stroke="#B4530A" stroke-width="1.4"/>
+              <!-- signal -->
+              <g stroke="#B4530A" fill="none" opacity=".7">
+                <path class="tw" d="M -8 -30 Q 0 -37 8 -30"/>
+                <path class="tw2" d="M -13 -36 Q 0 -46 13 -36"/>
+              </g>
+            </g>
+          </g>
+          <!-- orbit -->
+          <ellipse cx="170" cy="115" rx="140" ry="52" fill="none" stroke="#3D4E8C" stroke-width=".8"
+                   stroke-dasharray="3 6" opacity=".55"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <span class="tag">Defence &amp; Space</span>
+        <h3>Anti-Analytics Satellite Deterrence in Space Warfare</h3>
+        <p>Modelling deterrence dynamics where satellite analytics capabilities themselves
+           become strategic targets. Presented at SMOPS 2026, organised by ISRO.</p>
+        <span class="venue pub">SMOPS 2026 · ISRO</span>
+      </div>
+    </article>
+
+    <!-- ELDER CARE ROBOT -->
+    <article class="card">
+      <div class="card-art">
+        <svg viewBox="0 0 340 170" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FDF6EC"/>
+              <stop offset="100%" stop-color="#F3E4CE"/>
+            </linearGradient>
+            <linearGradient id="robotbody" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#3D6BD8"/>
+              <stop offset="100%" stop-color="#1E3D8F"/>
+            </linearGradient>
+          </defs>
+          <rect width="340" height="170" fill="url(#room)"/>
+          <!-- floor -->
+          <rect y="132" width="340" height="38" fill="#E2CBA8"/>
+          <line x1="0" y1="132" x2="340" y2="132" stroke="#C9AC82" stroke-width="1"/>
+          <!-- window -->
+          <rect x="228" y="22" width="76" height="66" rx="4" fill="#BFE3FF" stroke="#C9AC82" stroke-width="2"/>
+          <line x1="266" y1="22" x2="266" y2="88" stroke="#C9AC82" stroke-width="2"/>
+          <line x1="228" y1="55" x2="304" y2="55" stroke="#C9AC82" stroke-width="2"/>
+          <circle cx="288" cy="38" r="8" fill="#FFE9A8"/>
+          <!-- plant -->
+          <g transform="translate(36,96)">
+            <path d="M 0 36 L 22 36 L 18 14 L 4 14 Z" fill="#B4530A"/>
+            <path d="M 11 14 C 4 2 -6 4 -8 -6 C 4 -4 10 2 11 14 Z" fill="#3E8E5A"/>
+            <path d="M 11 14 C 18 0 28 4 30 -8 C 18 -6 12 2 11 14 Z" fill="#4FA76C"/>
+            <path d="M 11 14 C 11 2 11 -6 11 -12 C 14 -4 13 4 11 14 Z" fill="#357A4D"/>
+          </g>
+          <!-- robot -->
+          <g class="fl">
+            <!-- head -->
+            <rect x="142" y="34" width="56" height="42" rx="12" fill="url(#robotbody)" stroke="#12306B"/>
+            <rect x="152" y="44" width="36" height="20" rx="6" fill="#0F2340"/>
+            <circle cx="163" cy="54" r="4.5" fill="#7FE3FF"/>
+            <circle cx="177" cy="54" r="4.5" fill="#7FE3FF"/>
+            <circle cx="164.5" cy="52.5" r="1.5" fill="#fff"/>
+            <circle cx="178.5" cy="52.5" r="1.5" fill="#fff"/>
+            <path d="M 164 68 Q 170 72 176 68" stroke="#7FE3FF" stroke-width="1.6" fill="none"/>
+            <line x1="170" y1="34" x2="170" y2="26" stroke="#12306B" stroke-width="2"/>
+            <circle cx="170" cy="23" r="3" fill="#B4530A"/>
+            <!-- body -->
+            <rect x="136" y="78" width="68" height="52" rx="10" fill="url(#robotbody)" stroke="#12306B"/>
+            <!-- storage door -->
+            <rect x="148" y="88" width="44" height="26" rx="4" fill="#0F2340" stroke="#7FB3FF" stroke-width="1"/>
+            <text x="170" y="99" font-family="JetBrains Mono, monospace" font-size="5.5" fill="#7FE3FF" text-anchor="middle">MEDICINE</text>
+            <text x="170" y="108" font-family="JetBrains Mono, monospace" font-size="5.5" fill="#7FE3FF" text-anchor="middle">+ WATER</text>
+            <circle cx="170" cy="122" r="3" fill="#4ADE80"/>
+            <!-- arms -->
+            <rect x="126" y="84" width="9" height="30" rx="4.5" fill="url(#robotbody)" stroke="#12306B"/>
+            <rect x="205" y="84" width="9" height="30" rx="4.5" fill="url(#robotbody)" stroke="#12306B"/>
+            <!-- tray with glass -->
+            <rect x="196" y="80" width="30" height="4" rx="2" fill="#C9AC82"/>
+            <rect x="206" y="66" width="10" height="14" rx="1.5" fill="#BFE3FF" stroke="#8FC7F0"/>
+          </g>
+          <!-- wheels -->
+          <ellipse cx="152" cy="136" rx="11" ry="7" fill="#26304A"/>
+          <ellipse cx="188" cy="136" rx="11" ry="7" fill="#26304A"/>
+          <ellipse cx="152" cy="136" rx="4.5" ry="3" fill="#4A5878"/>
+          <ellipse cx="188" cy="136" rx="4.5" ry="3" fill="#4A5878"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <span class="tag">Robotics &amp; Ageing</span>
+        <h3>Elder-Care Robots for Security and Domestic Assistance</h3>
+        <p>Design and system model for wheeled home robots serving elderly users — scheduled
+           medicine and water delivery, fall detection, and family-connected monitoring,
+           with a human always in the decision loop.</p>
+        <span class="venue">Working paper · In development</span>
+      </div>
+    </article>
+
+    <!-- IPL CRICKET -->
+    <article class="card">
+      <div class="card-art">
+        <svg viewBox="0 0 340 170" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="pitchsky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0E1B3D"/>
+              <stop offset="100%" stop-color="#23408F"/>
+            </linearGradient>
+            <radialGradient id="ballg" cx="35%" cy="35%" r="75%">
+              <stop offset="0%" stop-color="#FF7A59"/>
+              <stop offset="100%" stop-color="#B4310A"/>
+            </radialGradient>
+          </defs>
+          <rect width="340" height="170" fill="url(#pitchsky)"/>
+          <!-- stadium lights -->
+          <g class="tw"><circle cx="52" cy="26" r="4" fill="#FFF2C4"/><rect x="49" y="30" width="6" height="22" fill="#31456F"/></g>
+          <g class="tw2"><circle cx="288" cy="26" r="4" fill="#FFF2C4"/><rect x="285" y="30" width="6" height="22" fill="#31456F"/></g>
+          <!-- ground -->
+          <ellipse cx="170" cy="185" rx="220" ry="70" fill="#2E7D4F"/>
+          <ellipse cx="170" cy="185" rx="150" ry="46" fill="#3C9C64"/>
+          <rect x="150" y="128" width="40" height="34" fill="#C9A96B" rx="3"/>
+          <!-- trajectory -->
+          <path d="M 158 138 C 190 60, 250 44, 305 58" fill="none" stroke="#FFD9A8"
+                stroke-width="2" stroke-dasharray="5 6" opacity=".9"/>
+          <!-- ball -->
+          <g class="fl">
+            <circle cx="256" cy="47" r="11" fill="url(#ballg)"/>
+            <path d="M 248 41 Q 256 47 264 53" stroke="#FFE1D1" stroke-width="1.3" fill="none"/>
+            <path d="M 250 39 Q 258 45 266 51" stroke="#FFE1D1" stroke-width=".7" fill="none" opacity=".7"/>
+          </g>
+          <!-- wicket -->
+          <g stroke="#F0E4C8" stroke-width="3" stroke-linecap="round">
+            <line x1="163" y1="160" x2="163" y2="138"/>
+            <line x1="170" y1="160" x2="170" y2="138"/>
+            <line x1="177" y1="160" x2="177" y2="138"/>
+          </g>
+          <line x1="161" y1="137" x2="179" y2="137" stroke="#F0E4C8" stroke-width="2.4" stroke-linecap="round"/>
+          <!-- equation -->
+          <text x="60" y="90" font-family="STIX Two Text, serif" font-style="italic" font-size="13" fill="#AFC6FF">E[R | overs, wkts]</text>
+        </svg>
+      </div>
+      <div class="card-body">
+        <span class="tag">Sports Analytics</span>
+        <h3>Score Prediction Model for IPL Cricket</h3>
+        <p>An innings-score forecasting model for T20 cricket using ball-by-ball state
+           variables. Published in the International Journal of Mathematics &amp; Statistics.</p>
+        <span class="venue pub">IJMS · Published</span>
+      </div>
+    </article>
+
+    <!-- FOOTBALL -->
+    <article class="card">
+      <div class="card-art">
+        <svg viewBox="0 0 340 170" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="fieldg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2E7D4F"/>
+              <stop offset="100%" stop-color="#1F5C38"/>
+            </linearGradient>
+          </defs>
+          <rect width="340" height="170" fill="url(#fieldg)"/>
+          <!-- mowing stripes -->
+          <g fill="#2A714706">
+            <rect x="0" y="0" width="340" height="24" fill="#2A7147" opacity=".45"/>
+            <rect x="0" y="48" width="340" height="24" fill="#2A7147" opacity=".45"/>
+            <rect x="0" y="96" width="340" height="24" fill="#2A7147" opacity=".45"/>
+            <rect x="0" y="144" width="340" height="24" fill="#2A7147" opacity=".45"/>
+          </g>
+          <!-- pitch lines -->
+          <g stroke="#E9F5EC" stroke-width="1.6" fill="none" opacity=".9">
+            <circle cx="170" cy="85" r="34"/>
+            <line x1="170" y1="0" x2="170" y2="170"/>
+            <rect x="0" y="40" width="52" height="90"/>
+            <rect x="288" y="40" width="52" height="90"/>
+          </g>
+          <!-- decision tree overlay -->
+          <g stroke="#FFD9A8" stroke-width="1.4" fill="none" opacity=".95">
+            <line x1="96" y1="52" x2="140" y2="82"/>
+            <line x1="96" y1="52" x2="128" y2="30"/>
+            <line x1="140" y1="82" x2="196" y2="66"/>
+            <line x1="140" y1="82" x2="182" y2="116"/>
+          </g>
+          <g fill="#FFF4E0" stroke="#B4530A" stroke-width="1.4">
+            <circle cx="96" cy="52" r="7"/>
+            <circle cx="128" cy="30" r="6"/>
+            <circle cx="140" cy="82" r="7"/>
+            <circle cx="196" cy="66" r="6"/>
+            <circle cx="182" cy="116" r="6"/>
+          </g>
+          <!-- ball -->
+          <g class="fl">
+            <circle cx="248" cy="98" r="13" fill="#FAFAF7" stroke="#26304A" stroke-width="1.2"/>
+            <path d="M 248 91 L 254 95 L 252 102 L 244 102 L 242 95 Z" fill="#26304A"/>
+          </g>
+        </svg>
+      </div>
+      <div class="card-body">
+        <span class="tag">Decision Theory</span>
+        <h3>Career Decision Model for Professional Footballers</h3>
+        <p>A quantitative framework modelling transfer and career-path decisions under
+           uncertainty. Presented at EURO 2016, Poznań, Poland.</p>
+        <span class="venue pub">EURO 2016 · Poznań</span>
+      </div>
+    </article>
+
+    <!-- PLACEHOLDER: YOUR NEXT PAPER -->
+    <article class="card">
+      <div class="card-art">
+        <svg viewBox="0 0 340 170" preserveAspectRatio="xMidYMid slice">
+          <rect width="340" height="170" fill="#F4F1E9"/>
+          <!-- blank graph paper -->
+          <g stroke="#DAD5C6" stroke-width="1">
+            <line x1="0" y1="34" x2="340" y2="34"/><line x1="0" y1="68" x2="340" y2="68"/>
+            <line x1="0" y1="102" x2="340" y2="102"/><line x1="0" y1="136" x2="340" y2="136"/>
+            <line x1="48" y1="0" x2="48" y2="170"/><line x1="96" y1="0" x2="96" y2="170"/>
+            <line x1="144" y1="0" x2="144" y2="170"/><line x1="192" y1="0" x2="192" y2="170"/>
+            <line x1="240" y1="0" x2="240" y2="170"/><line x1="288" y1="0" x2="288" y2="170"/>
+          </g>
+          <text x="170" y="80" font-family="STIX Two Text, serif" font-style="italic"
+                font-size="22" fill="#8A93A8" text-anchor="middle">f(x) = ?</text>
+          <text x="170" y="106" font-family="JetBrains Mono, monospace"
+                font-size="9" fill="#8A93A8" text-anchor="middle">your problem could be next</text>
+        </svg>
+      </div>
+      <div class="card-body">
+        <span class="tag">Open Slot</span>
+        <h3>The Next Model</h3>
+        <p>More working papers in regulatory data architecture, econometric forecasting,
+           and applied optimisation are being added. Or bring me a problem worth modelling —
+           and this card becomes yours.</p>
+        <a class="venue" href="#submit" style="text-decoration:none">Submit a problem →</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+<div class="rule"></div>
+
+<!-- ══ SERVICE ══ -->
+<section id="service">
+  <div class="sec-head">
+    <h2>Bring Me Your Modelling Problem</h2>
+    <p>Research questions, business forecasting, optimisation, risk quantification,
+       simulation, thesis support. If it can be modelled, I will model it — and explain
+       every step so you own the result.</p>
+  </div>
+
+  <div class="service-grid">
+    <ol class="steps">
+      <li>
+        <h3>Describe the problem</h3>
+        <p>Use the form below. Plain language is fine — part of my job is translating
+           your question into mathematics.</p>
+      </li>
+      <li>
+        <h3>Get a scope &amp; quote</h3>
+        <p>Within 48 hours I reply with what's solvable, the method I'd use, a fixed
+           price, and a delivery date.</p>
+      </li>
+      <li>
+        <h3>Pay to confirm</h3>
+        <p>50% advance via UPI or payment link confirms the engagement. Balance on delivery.</p>
+      </li>
+      <li>
+        <h3>Receive the solution</h3>
+        <p>A written model document: assumptions, formulation, solution, code where relevant,
+           and a plain-language summary of what it means.</p>
+      </li>
+    </ol>
+
+    <div class="price-card">
+      <h3>Indicative Pricing</h3>
+      <div class="price-row">
+        <span class="kind">Student problem<small>assignment-level, single model</small></span>
+        <span class="amt">₹1,500 – 4,000</span>
+      </div>
+      <div class="price-row">
+        <span class="kind">Research support<small>thesis chapter, paper-grade model</small></span>
+        <span class="amt">₹8,000 – 25,000</span>
+      </div>
+      <div class="price-row">
+        <span class="kind">Business / industry<small>forecasting, optimisation, risk</small></span>
+        <span class="amt">₹20,000 – 1,00,000+</span>
+      </div>
+      <p class="price-note">Every quote is fixed before work begins. No surprises.
+         Academic-integrity note: for student work I teach and build with you — I don't
+         ghost-write graded submissions.</p>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ══ SUBMIT FORM ══ -->
+<section id="submit">
+  <div class="sec-head" style="text-align:center">
+    <h2>Submit a Problem</h2>
+    <p style="margin:0 auto">This form opens your email client with everything pre-filled —
+       send it and I'll reply within 48 hours with a scope and quote.</p>
+  </div>
+
+  <div class="form-wrap">
+    <div class="form-row">
+      <label for="f-name">Your name</label>
+      <input id="f-name" type="text" placeholder="Full name">
+    </div>
+    <div class="form-row">
+      <label for="f-email">Your email</label>
+      <input id="f-email" type="email" placeholder="you@example.com">
+    </div>
+    <div class="form-row">
+      <label for="f-type">Problem type</label>
+      <select id="f-type">
+        <option>Student / coursework</option>
+        <option>Research / thesis</option>
+        <option>Business / industry</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label for="f-desc">Describe your problem</label>
+      <textarea id="f-desc" placeholder="What are you trying to predict, optimise, or understand? What data do you have? Any deadline?"></textarea>
+      <div class="form-hint">Attach data files in the email that opens after you click send.</div>
+    </div>
+    <button class="btn btn-primary" style="width:100%;border:none;cursor:pointer;font-size:.95rem"
+      onclick="sendProblem()">Send problem for review →</button>
+
+    <div class="pay-box">
+      <h4>Payment — after you receive your quote</h4>
+      <p>Once we agree on scope and price, pay the 50% advance to confirm:</p>
+      <span class="upi">UPI: anayrennie@upi &nbsp;·&nbsp; (replace with your real UPI ID)</span>
+      <p style="margin-top:8px">Or request a Razorpay payment link in the email thread —
+         works with all cards and net-banking.</p>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ══ ABOUT ══ -->
+<section id="about">
+  <div class="sec-head">
+    <h2>About</h2>
+  </div>
+  <div class="about-grid">
+    <div>
+      <p style="font-size:.95rem;margin-bottom:16px">
+        I trained in Mathematics &amp; Computing at IIT (ISM) Dhanbad and spent seven years
+        at Deloitte building and validating quantitative models for Tier-1 US and Japanese
+        banks — systems where a wrong number has regulatory consequences.
+      </p>
+      <p style="font-size:.95rem;color:var(--grey)">
+        Mathematical modelling is the craft I keep returning to: taking a question that
+        starts in words and ending with an equation that actually answers it. This site
+        is both my research portfolio and an open door — if you have a problem worth
+        modelling, I want to see it.
+      </p>
+    </div>
+    <div>
+      <div class="cred">
+        <h4>Integrated M.Tech, Mathematics &amp; Computing</h4>
+        <p>IIT (ISM) Dhanbad · MCM Fellow · Top 0.5% of 1.2M JEE candidates</p>
+      </div>
+      <div class="cred">
+        <h4>Erasmus Mundus Scholar</h4>
+        <p>University of Trento, Italy — fully-funded competitive scholarship</p>
+      </div>
+      <div class="cred">
+        <h4>7 Years — Risk &amp; Regulatory Technology</h4>
+        <p>Deloitte USI · model validation, regulatory data pipelines, model governance</p>
+      </div>
+      <div class="cred">
+        <h4>Published &amp; Presented</h4>
+        <p>IJMS · EURO 2015 &amp; 2016 · SMOPS 2026 (ISRO)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="eq">"All models are wrong, but some are useful." — G. E. P. Box</p>
+  <p>© 2026 Anay Rennie · <a href="mailto:anayrennie@gmail.com">anayrennie@gmail.com</a> · Kolkata, India</p>
+</footer>
+
+<script>
+function sendProblem(){
+  var name = document.getElementById('f-name').value || '(name not given)';
+  var email = document.getElementById('f-email').value || '(email not given)';
+  var type = document.getElementById('f-type').value;
+  var desc = document.getElementById('f-desc').value || '(no description)';
+  var subject = encodeURIComponent('Modelling problem — ' + type + ' — from ' + name);
+  var body = encodeURIComponent(
+    'Name: ' + name + '\n' +
+    'Email: ' + email + '\n' +
+    'Type: ' + type + '\n\n' +
+    'Problem description:\n' + desc + '\n\n' +
+    '(Attach any data files to this email before sending.)'
+  );
+  window.location.href = 'mailto:anayrennie@gmail.com?subject=' + subject + '&body=' + body;
+}
+</script>
+
+</body>
+</html>
