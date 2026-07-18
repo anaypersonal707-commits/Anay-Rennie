@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Startup Jantar Mantar — Build India's Governance from the Bottom Up</title>
+<meta name="description" content="Startup Jantar Mantar — a citizens' civic incubator at India's protest capital. Pitch and build startups that fix exams, jobs and governance from the bottom up. Powered by the youth movement at Jantar Mantar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#17181A;
+  --paper:#F7F6F1;
+  --card:#FFFFFF;
+  --saffron:#F26522;
+  --green:#1E7A46;
+  --blue:#1E4FA3;
+  --muted:#5A5D63;
+  --line:#E3E1D8;
+  --disp:'Anton', Impact, sans-serif;
+  --body:'Space Grotesk', -apple-system, sans-serif;
+  --hindi:'Tiro Devanagari Hindi', serif;
+  --maxw:1120px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px}
+a{color:var(--blue);text-decoration:none}
+a:focus-visible,button:focus-visible{outline:3px solid var(--saffron);outline-offset:3px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--disp);font-weight:400;line-height:1.02;text-transform:uppercase;letter-spacing:.01em}
+section{padding:88px 0}
+.label{font-weight:700;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--saffron);display:block;margin-bottom:14px}
+.hindi{font-family:var(--hindi)}
+.btn{display:inline-block;font-family:var(--disp);font-size:1.05rem;letter-spacing:.05em;text-transform:uppercase;padding:16px 32px;border:3px solid var(--ink);cursor:pointer;text-align:center;box-shadow:5px 5px 0 var(--ink);transition:box-shadow .12s,transform .12s;color:var(--ink);background:var(--card)}
+.btn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+.btn-saffron{background:var(--saffron);color:#fff}
+.btn-green{background:var(--green);color:#fff}
+.btn-blue{background:var(--blue);color:#fff}
+
+/* ============ HERO ============ */
+.hero{background:var(--ink);color:var(--paper);position:relative;overflow:hidden;border-bottom:6px solid var(--saffron)}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(247,246,241,.07) 1.5px,transparent 1.5px);background-size:22px 22px;pointer-events:none}
+.topbar{padding:18px 0;border-bottom:1px solid #2C2E32;position:relative;z-index:2}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--disp);font-size:1.2rem;letter-spacing:.04em;color:var(--paper);text-transform:uppercase}
+.brand span{color:var(--saffron)}
+.topbar nav{display:flex;gap:22px;flex-wrap:wrap}
+.topbar nav a{font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#B9BBB6}
+.topbar nav a:hover{color:var(--saffron)}
+.hero-main{padding:72px 0 84px;position:relative;z-index:2}
+.stamp{display:inline-block;font-weight:700;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;border:2px solid var(--green);color:#7ED6A5;padding:7px 14px;transform:rotate(-2deg);margin-bottom:26px}
+.hero h1{font-size:clamp(3rem,10vw,7rem);color:var(--paper)}
+.hero h1 .s{color:var(--saffron)}
+.hero h1 .g{color:#3FBF77}
+.hero .hin{font-family:var(--hindi);font-size:clamp(1.2rem,3vw,1.7rem);color:#CFCFC8;margin:18px 0 8px}
+.hero .sub{font-size:clamp(1rem,1.9vw,1.18rem);color:#A9ACA6;max-width:640px;margin:14px 0 40px}
+.hero .sub b{color:var(--paper)}
+.hero-cta{display:flex;gap:18px;flex-wrap:wrap}
+.fact-row{display:flex;gap:0;margin-top:64px;border:2px solid #2C2E32;flex-wrap:wrap}
+.fact{flex:1;min-width:150px;padding:18px 20px;border-right:2px solid #2C2E32}
+.fact:last-child{border-right:none}
+.fact b{font-family:var(--disp);font-size:1.8rem;color:var(--saffron);display:block}
+.fact:nth-child(2) b{color:#3FBF77}
+.fact:nth-child(3) b{color:#6FA0E8}
+.fact:nth-child(4) b{color:var(--paper)}
+.fact span{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#8B8E89;font-weight:700}
+
+/* ============ SLOGAN STRIP ============ */
+.strip{background:var(--saffron);color:var(--ink);padding:14px 0;border-bottom:6px solid var(--ink);overflow:hidden}
+.strip .row{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;font-family:var(--disp);font-size:1.05rem;text-transform:uppercase;letter-spacing:.04em}
+.strip .row span::before{content:"🪳 "}
+
+/* ============ STORY ============ */
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.story h2{font-size:clamp(2rem,4.6vw,3.2rem);margin-bottom:20px}
+.story h2 em{font-style:normal;color:var(--saffron)}
+.story p{margin-bottom:14px;color:#3B3E43}
+.story p b{color:var(--ink)}
+.timeline{border-left:3px solid var(--ink);display:grid;gap:22px;padding-left:26px}
+.tl{position:relative}
+.tl::before{content:"";position:absolute;left:-35px;top:6px;width:13px;height:13px;background:var(--saffron);border:3px solid var(--paper);outline:2px solid var(--ink)}
+.tl:nth-child(2)::before{background:var(--green)}
+.tl:nth-child(3)::before{background:var(--blue)}
+.tl:nth-child(4)::before{background:var(--saffron)}
+.tl:nth-child(5)::before{background:var(--green)}
+.tl:nth-child(6)::before{background:var(--blue)}
+.tl .d{font-weight:700;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--saffron)}
+.tl h3{font-family:var(--body);font-weight:700;text-transform:none;letter-spacing:0;font-size:1.02rem;margin:3px 0 2px}
+.tl p{font-size:.88rem;color:var(--muted);margin:0}
+
+/* ============ DEMANDS ============ */
+.demands{background:var(--ink);color:var(--paper);border-top:6px solid var(--green);border-bottom:6px solid var(--green)}
+.demands h2{font-size:clamp(2rem,4.6vw,3.2rem);color:var(--paper);margin-bottom:12px}
+.demands h2 em{font-style:normal;color:#3FBF77}
+.demands .lede{color:#A9ACA6;max-width:620px;margin-bottom:50px}
+.demand-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.demand{border:2px solid #2C2E32;padding:26px 24px;background:#1D1F22}
+.demand .n{font-family:var(--disp);font-size:2rem;color:var(--saffron)}
+.demand h3{font-family:var(--body);font-weight:700;text-transform:none;letter-spacing:0;font-size:1.08rem;color:var(--paper);margin:12px 0 8px}
+.demand p{font-size:.88rem;color:#A9ACA6}
+
+/* ============ SUGGESTION FORM ============ */
+.sujhaav{background:var(--paper)}
+.sujhaav .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
+.sujhaav h2{font-size:clamp(2rem,4.6vw,3.2rem);margin-bottom:16px}
+.sujhaav h2 em{font-style:normal;color:var(--green)}
+.sujhaav .exp{color:#3B3E43;margin-bottom:14px}
+.how{border:2px solid var(--ink);background:var(--card);padding:20px 22px;box-shadow:6px 6px 0 var(--ink)}
+.how h3{font-family:var(--body);font-weight:700;text-transform:none;letter-spacing:0;font-size:.95rem;margin-bottom:10px}
+.how ol{margin-left:20px;font-size:.88rem;color:#3B3E43}
+.how li{margin-bottom:6px}
+.form-card{background:var(--card);border:3px solid var(--ink);box-shadow:8px 8px 0 var(--ink);padding:30px}
+.form-card label{display:block;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;margin:18px 0 6px}
+.form-card label:first-child{margin-top:0}
+.form-card input,.form-card select,.form-card textarea{width:100%;padding:13px 14px;border:2px solid var(--ink);font-family:var(--body);font-size:.95rem;background:var(--paper)}
+.form-card textarea{min-height:120px;resize:vertical}
+.share-row{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.share-row .btn{flex:1;min-width:150px;font-size:.9rem;padding:14px 18px}
+.form-note{margin-top:14px;font-size:.78rem;color:var(--muted)}
+#copied{display:none;margin-top:10px;font-weight:700;color:var(--green);font-size:.85rem}
+
+/* ============ STARTUPS ============ */
+.startups{background:linear-gradient(135deg,var(--blue),#153A7A);color:#EEF2FA;border-top:6px solid var(--ink)}
+.startups h2{font-size:clamp(2rem,4.6vw,3.2rem);color:#fff;margin-bottom:12px}
+.startups h2 em{font-style:normal;color:#FFC069}
+.startups .lede{color:#BFCDE8;max-width:640px;margin-bottom:50px}
+.su-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.su{background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.25);padding:26px}
+.su .tag{display:inline-block;font-weight:700;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;background:var(--saffron);color:#fff;padding:5px 10px;margin-bottom:14px}
+.su h3{font-family:var(--body);font-weight:700;text-transform:none;letter-spacing:0;font-size:1.15rem;color:#fff;margin-bottom:8px}
+.su p{font-size:.9rem;color:#BFCDE8}
+.su-cta{margin-top:44px;text-align:center}
+.su-cta .btn{border-color:#fff;box-shadow:5px 5px 0 rgba(0,0,0,.4)}
+
+/* ============ PARTICIPATE ============ */
+.join h2{font-size:clamp(2rem,4.6vw,3.2rem);margin-bottom:50px}
+.join h2 em{font-style:normal;color:var(--saffron)}
+.join-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.jn{background:var(--card);border:2px solid var(--ink);padding:26px;position:relative}
+.jn::before{content:"";position:absolute;top:-2px;left:-2px;right:-2px;height:8px}
+.jn:nth-child(1)::before{background:var(--saffron)}
+.jn:nth-child(2)::before{background:var(--paper);border:2px solid var(--ink)}
+.jn:nth-child(3)::before{background:var(--green)}
+.jn h3{font-family:var(--body);font-weight:700;text-transform:none;letter-spacing:0;font-size:1.1rem;margin:10px 0 8px}
+.jn p{font-size:.9rem;color:#3B3E43}
+.jn ul{list-style:none;margin-top:10px}
+.jn li{padding:6px 0 6px 24px;position:relative;font-size:.88rem;color:#3B3E43;border-top:1px dashed var(--line)}
+.jn li::before{content:"▸";position:absolute;left:2px;color:var(--saffron);font-weight:700}
+.peace{margin-top:40px;border:3px dashed var(--green);background:#F0F8F2;padding:22px 26px;font-size:.95rem;color:#1E4A32}
+.peace b{text-transform:uppercase;letter-spacing:.08em}
+
+/* ============ FINAL ============ */
+.final{background:var(--ink);color:var(--paper);text-align:center;padding:100px 0;border-top:6px solid var(--saffron)}
+.final h2{font-size:clamp(2.4rem,7vw,4.6rem);color:var(--paper);max-width:900px;margin:0 auto 16px}
+.final h2 .s{color:var(--saffron)}.final h2 .g{color:#3FBF77}
+.final .hin{font-family:var(--hindi);color:#CFCFC8;font-size:1.25rem;margin-bottom:38px}
+footer{background:var(--ink);border-top:1px solid #2C2E32;padding:26px 0;color:#8B8E89;font-size:.75rem}
+footer .wrap{display:grid;gap:8px}
+footer b{color:#B9BBB6}
+
+@media (max-width:920px){
+  .story .wrap,.sujhaav .wrap{grid-template-columns:1fr;gap:44px}
+  .demand-grid,.join-grid{grid-template-columns:1fr 1fr}
+  .su-grid{grid-template-columns:1fr}
+}
+@media (max-width:620px){
+  section{padding:66px 0}
+  .demand-grid,.join-grid{grid-template-columns:1fr}
+  .hero-cta .btn,.share-row .btn{width:100%}
+  .fact{min-width:44%}
+}
+</style>
+</head>
+<body>
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="topbar">
+    <div class="wrap">
+      <span class="brand">Startup <span>Jantar Mantar</span> 🛠️🪳</span>
+      <nav>
+        <a href="#startups">Build Startups</a>
+        <a href="#sujhaav">Pitch an Idea</a>
+        <a href="#join">Participate</a>
+        <a href="#story">The Movement</a>
+        <a href="#demands">Demands</a>
+      </nav>
+    </div>
+  </div>
+  <div class="hero-main">
+    <div class="wrap">
+      <span class="stamp">India's first footpath incubator · Peaceful · Permissionless</span>
+      <h1>Protest points at the problem.<br><span class="s">Startups</span> <span class="g">fix it.</span></h1>
+      <p class="hin">शिकायत नहीं, शुरुआत। जंतर मंतर से — नीचे से ऊपर तक।</p>
+      <p class="sub"><b>Jantar Mantar</b> has India's problems and India's builders standing on the same footpath — students, engineers, lawyers, teachers, all within shouting distance. That's not just a protest site. <b>That's an incubator.</b> This platform turns the energy of the youth movement into working tools: leak-proof exams, transparent budgets, one-tap RTIs, ward-level democracy.</p>
+      <div class="hero-cta">
+        <a class="btn btn-saffron" href="#startups">🛠️ Start Building</a>
+        <a class="btn btn-green" href="#sujhaav">Pitch Your Idea</a>
+      </div>
+      <div class="fact-row">
+        <div class="fact"><b>6</b><span>Startup tracks open</span></div>
+        <div class="fact"><b>0</b><span>Permission needed to build</span></div>
+        <div class="fact"><b>1 Footpath</b><span>Problems + builders together</span></div>
+        <div class="fact"><b>20M+</b><span>Movement behind you</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ SLOGAN STRIP ============ -->
+<div class="strip" aria-hidden="true">
+  <div class="wrap">
+    <div class="row">
+      <span>Shikayat nahi, shuruaat</span>
+      <span>Prototype &gt; placard</span>
+      <span>Open-source the sarkaar</span>
+      <span>Build in public, for the public</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ STARTUPS ============ -->
+<section class="startups" id="startups">
+  <div class="wrap">
+    <span class="label" style="color:#FFC069">The main event · Startup at Jantar Mantar</span>
+    <h2>The incubator is open. <em>Pick a track.</em></h2>
+    <p class="lede">Six tracks, each aimed at a failure every Indian recognises. Pitch into one, find co-founders in the crowd and online, prototype small, open-source it — and ship tools the system can't ignore.</p>
+    <div class="su-grid">
+      <div class="su"><span class="tag">Track 01 · ExamTech</span><h3>Leak-proof examination infrastructure</h3><p>Paper-trail tracking, encrypted question banks, exam-centre auditing apps, anonymous leak-reporting hotlines with evidence vaults.</p></div>
+      <div class="su"><span class="tag">Track 02 · JanData</span><h3>Governance data in people's hands</h3><p>Dashboards that turn budgets, MGNREGA rolls and school data into plain Hindi/regional-language scorecards every citizen can read.</p></div>
+      <div class="su"><span class="tag">Track 03 · RTI Tools</span><h3>Right to Information, minus the friction</h3><p>One-tap RTI filing, template libraries, deadline trackers and public archives of replies — transparency as an app, not an ordeal.</p></div>
+      <div class="su"><span class="tag">Track 04 · Ward-Up</span><h3>Bottom-up local governance</h3><p>Ward-level issue reporting, panchayat meeting trackers, participatory budgeting pilots — democracy rebuilt street by street.</p></div>
+      <div class="su"><span class="tag">Track 05 · YuvaJobs</span><h3>Honest pathways to work</h3><p>Verified vacancy boards, exam-calendar sanity tools, skill-exchange collectives — because rage at unemployment deserves an outlet that pays.</p></div>
+      <div class="su"><span class="tag">Track 06 · SatyaCheck</span><h3>Truth infrastructure</h3><p>Community fact-checking of sarkari claims, promise-trackers for manifestos, archives that remember what politicians said.</p></div>
+    </div>
+    <div class="su-grid" style="margin-top:44px">
+      <div class="su" style="border-style:dashed"><span class="tag" style="background:var(--green)">How it works · 01–02</span><h3>Pitch → Team up</h3><p>Post your idea through the pitch box below with the movement's hashtags. Builders reply, co-founders appear — at the camp or from anywhere in India. No applications, no gatekeepers.</p></div>
+      <div class="su" style="border-style:dashed"><span class="tag" style="background:var(--green)">How it works · 03–04</span><h3>Prototype → Open-source</h3><p>Build the smallest thing that works within a month. Then publish it openly so any district, any college, any panchayat can copy it tomorrow. Impact scales by being stolen.</p></div>
+    </div>
+    <div class="su-cta">
+      <a class="btn btn-saffron" href="#sujhaav">Pitch Your Startup Idea Now ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUGGESTIONS ============ -->
+<section class="sujhaav" id="sujhaav">
+  <div class="wrap">
+    <div>
+      <span class="label">Jan Sujhaav · जन सुझाव</span>
+      <h2>Pitch box: <em>ideas in, startups out.</em></h2>
+      <p class="exp">Every startup here begins as one honest paragraph. Pitch a civic startup for any track — or drop a plain suggestion about exams, jobs, corruption or local governance. It goes out on your own social media, where builders and the movement can find it and rally behind it.</p>
+      <div class="how">
+        <h3>How it works (15 seconds)</h3>
+        <ol>
+          <li>Write your suggestion in the box.</li>
+          <li>Pick a topic so it's easy to find.</li>
+          <li>Tap WhatsApp or X — your post opens pre-written, tagged with the movement's hashtags.</li>
+          <li>Post it. The best ideas rise because people share them — bottom-up, like everything else here.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="form-card">
+      <label for="s-name">Your name (or stay anonymous)</label>
+      <input id="s-name" placeholder="e.g., Ravi, Patna">
+      <label for="s-topic">Topic</label>
+      <select id="s-topic">
+        <option>Startup Pitch — pick your track in the text</option>
+        <option>Exams &amp; Education</option>
+        <option>Jobs &amp; Unemployment</option>
+        <option>Corruption &amp; Transparency</option>
+        <option>Local Governance</option>
+        <option>Healthcare</option>
+        <option>Farmers &amp; Villages</option>
+        <option>Other</option>
+      </select>
+      <label for="s-text">Your pitch or suggestion for India</label>
+      <textarea id="s-text" placeholder="Example pitch: LeakLock — every exam paper gets a public tracking ID from printing press to exam hall, auditable by RTI. Need: 2 devs + 1 lawyer. Building at Jantar Mantar, Track 01…"></textarea>
+      <div class="share-row">
+        <a class="btn btn-green" id="btn-wa" href="https://wa.me/?text=My%20suggestion%20for%20India%20%F0%9F%AA%B3%20%23CockroachJantaParty%20%23JanSujhaav" rel="noopener">Share on WhatsApp</a>
+        <a class="btn" id="btn-x" href="https://twitter.com/intent/tweet?text=My%20suggestion%20for%20India%20%F0%9F%AA%B3&hashtags=CockroachJantaParty,JanSujhaav,JantarMantar" rel="noopener">Post on X</a>
+        <button class="btn btn-blue" id="btn-copy" type="button">Copy Text</button>
+      </div>
+      <div id="copied">✓ Copied — paste it anywhere.</div>
+      <p class="form-note">Nothing is stored on this page. Your words go out under your own name, on your own accounts — the way a people's movement should work.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARTICIPATE ============ -->
+<section class="join" id="join">
+  <div class="wrap">
+    <span class="label">Ways to participate</span>
+    <h2>Every builder <em>counts.</em></h2>
+    <div class="join-grid">
+      <div class="jn">
+        <h3>🚩 At Jantar Mantar</h3>
+        <p>Join the peaceful sit-in in New Delhi.</p>
+        <ul>
+          <li>Bring the national flag in one hand, a book in the other</li>
+          <li>Volunteers welcome — food, water and supplies keep the camp alive</li>
+          <li>Evenings see the biggest gatherings; overnight vigils continue</li>
+        </ul>
+      </div>
+      <div class="jn">
+        <h3>📱 From anywhere</h3>
+        <p>This movement was born online — its heartbeat is your feed.</p>
+        <ul>
+          <li>Post your Jan Sujhaav with the movement's hashtags</li>
+          <li>Amplify student stories; counter misinformation politely</li>
+          <li>Organise book-and-flag gatherings in your own city</li>
+        </ul>
+      </div>
+      <div class="jn">
+        <h3>🛠️ As a builder</h3>
+        <p>Lend your skills to the civic startup tracks.</p>
+        <ul>
+          <li>Developers, designers, lawyers, teachers — all needed</li>
+          <li>Adopt one track and prototype something small this month</li>
+          <li>Open-source it so any district can copy it tomorrow</li>
+        </ul>
+      </div>
+    </div>
+    <div class="peace"><b>Peace is the strategy:</b> organisers have consistently urged demonstrators to remain peaceful and avoid confrontation. This platform supports only lawful, non-violent civic participation. A movement that reads books doesn't need to raise fists.</div>
+  </div>
+</section>
+
+<!-- ============ STORY ============ -->
+<section class="story" id="story">
+  <div class="wrap">
+    <div>
+      <span class="label">The movement behind the incubator</span>
+      <h2>An insult became an <em>identity.</em></h2>
+      <p>In May 2026, when activists and unemployed youth were dismissed from the highest quarters as <b>"cockroaches" and "parasites of society,"</b> young India did something unexpected: it wore the insult as armour.</p>
+      <p>Within a week, the satirical <b>Cockroach Janta Party</b> — a wordplay every Indian instantly understood — had lakhs of sign-ups and tens of millions of followers. What began as memes turned into marches: exam paper leaks, cancelled tests, delayed results and vanishing jobs had given a generation more than enough reason.</p>
+      <p>Since 20 June, supporters have held a continuous presence at <b>Jantar Mantar</b> — protesting peacefully with the national flag in one hand and a book in the other, symbolising the right to education and equal opportunity. Volunteers arrive daily with food and water. Veterans of public conscience have joined; a hunger strike stands alongside the students.</p>
+      <p><b>That movement is the wind at this incubator's back</b> — the crowd, the urgency and the audience. The building comes first here; the story is why it matters.</p>
+    </div>
+    <div>
+      <span class="label">Timeline</span>
+      <div class="timeline">
+        <div class="tl"><span class="d">15 May 2026</span><h3>The "cockroach" remark</h3><p>Activists and unemployed youth are publicly branded cockroaches and parasites. Outrage spreads nationwide overnight.</p></div>
+        <div class="tl"><span class="d">16 May 2026</span><h3>CJP is born</h3><p>Founder Abhijeet Dipke launches the satirical movement; 3.5 lakh sign-ups and 20M+ followers arrive within a week.</p></div>
+        <div class="tl"><span class="d">May–June 2026</span><h3>NEET 2026 scandal erupts</h3><p>The medical entrance exam is cancelled after evidence of a widespread paper leak; CBSE marking irregularities deepen the anger.</p></div>
+        <div class="tl"><span class="d">11 June 2026</span><h3>Exam Manifesto released</h3><p>At the Pune protest, CJP publishes its education manifesto: stop paper leaks, end result delays, fix accountability.</p></div>
+        <div class="tl"><span class="d">20 June 2026</span><h3>Jantar Mantar sit-in begins</h3><p>Hundreds gather at Delhi's historic protest site and refuse to leave; overnight vigils continue day after day.</p></div>
+        <div class="tl"><span class="d">28 June 2026</span><h3>Hunger strike joins in</h3><p>Sonam Wangchuk — a self-declared "honorary cockroach" — begins a hunger strike at Jantar Mantar with six students.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEMANDS ============ -->
+<section class="demands" id="demands">
+  <div class="wrap">
+    <span class="label">What the movement demands</span>
+    <h2>Not revolution. <em>Just fairness.</em></h2>
+    <p class="lede">The demands on the street are simple enough to fit on a placard — and reasonable enough that refusing them is the real scandal.</p>
+    <div class="demand-grid">
+      <div class="demand"><div class="n">01</div><h3>Accountability at the top</h3><p>Resignation of the Union Education Minister over the NEET 2026 paper leak and repeated examination failures on his watch.</p></div>
+      <div class="demand"><div class="n">02</div><h3>Leak-proof examinations</h3><p>End-to-end reform of how papers are set, printed, transported and conducted — so that one leak cannot destroy ten lakh futures.</p></div>
+      <div class="demand"><div class="n">03</div><h3>Results on time, every time</h3><p>Fixed statutory timelines for results and counselling. A student's year should never disappear into administrative silence.</p></div>
+      <div class="demand"><div class="n">04</div><h3>Transparent testing agencies</h3><p>Independent audits, published error reports and real consequences for the agencies that run national examinations.</p></div>
+      <div class="demand"><div class="n">05</div><h3>Justice for the affected</h3><p>Fair remedies for students harmed by leaks, cancellations and marking irregularities — including those driven to despair.</p></div>
+      <div class="demand"><div class="n">06</div><h3>A seat for the young</h3><p>Structured youth consultation in education policy — because the people who take the exams deserve a voice in how they're run.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL ============ -->
+<section class="final">
+  <div class="wrap">
+    <h2>Stop scrolling. <span class="s">Start</span> <span class="g">building.</span></h2>
+    <p class="hin">एक ट्रैक चुनो। एक टीम बनाओ। एक औज़ार बनाओ — भारत के लिए।</p>
+    <div class="hero-cta" style="justify-content:center">
+      <a class="btn btn-saffron" href="#startups">Pick Your Track 🛠️</a>
+      <a class="btn" style="background:var(--paper)" href="#sujhaav">Pitch Your Idea 🪳</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span><b>Disclaimer:</b> Jan Sujhaav Manch is an independent, unofficial community platform created in support of citizens engaging with the Cockroach Janta Party movement. It is not the movement's official website and is not affiliated with, or endorsed by, its founders. CJP is an unregistered satirical movement, not a registered political party.</span>
+    <span>Factual details (founding, follower counts, protest dates, manifesto, hunger strike) are drawn from reporting by Al Jazeera, CNN, AP, The Hindu and others, as of July 2026. Suggestions shared via this page are posted by users on their own social media accounts; this page stores nothing.</span>
+    <span style="color:#CFCFC8">© 2026 · Made with ❤️ by <b style="color:var(--saffron)">Anay Rennie</b>, a patriot 🇮🇳 · <a href="#top">Back to top ↑</a></span>
+  </div>
+</footer>
+
+<script>
+/* Build share links from the suggestion box — tiny, no scroll effects, safe everywhere */
+(function(){
+  var t=document.getElementById('s-text'),n=document.getElementById('s-name'),
+      top=document.getElementById('s-topic'),wa=document.getElementById('btn-wa'),
+      x=document.getElementById('btn-x'),cp=document.getElementById('btn-copy'),
+      ok=document.getElementById('copied');
+  if(!t) return;
+  function msg(){
+    var who=n.value.trim()?(' — '+n.value.trim()):'';
+    var body=t.value.trim()||'India deserves fair exams and honest governance.';
+    return 'MY SUGGESTION FOR INDIA 🪳\n['+top.value+']\n\n'+body+who+'\n\n#CockroachJantaParty #JanSujhaav #JantarMantar';
+  }
+  function refresh(){
+    var m=encodeURIComponent(msg());
+    wa.href='https://wa.me/?text='+m;
+    x.href='https://twitter.com/intent/tweet?text='+m;
+  }
+  ['input','change'].forEach(function(ev){
+    t.addEventListener(ev,refresh);n.addEventListener(ev,refresh);top.addEventListener(ev,refresh);
+  });
+  refresh();
+  cp.addEventListener('click',function(){
+    var m=msg();
+    function done(){ok.style.display='block';setTimeout(function(){ok.style.display='none';},2500);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(m).then(done,fallback);}
+    else{fallback();}
+    function fallback(){
+      var ta=document.createElement('textarea');ta.value=m;document.body.appendChild(ta);
+      ta.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(ta);
+    }
+  });
+})();
+</script>
+</body>
+</html>
